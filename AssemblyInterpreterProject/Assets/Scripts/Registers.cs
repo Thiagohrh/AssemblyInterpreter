@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 public class Registers
 {
     public static Dictionary<string, int> registry = new Dictionary<string, int>();
