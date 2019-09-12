@@ -6,6 +6,6 @@ public class LD : IInstructionable<string>
 {
     public void Execute(string operandum)
     {
-        Debug.Log("Loading something!");
+        //Debug.Log("Loading something!");
     }
 }

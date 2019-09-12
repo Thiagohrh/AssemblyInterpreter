@@ -6,6 +6,6 @@ public class ST : IInstructionable<string>
 {
     public void Execute(string operandum)
     {
-        Debug.Log("Storing something!");
+        //Debug.Log("Storing something!");
     }
 }
