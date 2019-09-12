@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LineParserer
@@ -7,6 +8,7 @@ public class LineParserer
     private bool processingData = false;
     private bool processingCode = false;
     private string[] unwantedCharacters = { ":", "#", "," };
+    private int memoryPosition = 0;
     public void ParseLine(string line)
     {
         line = line.TrimEnd('\r', '\n');
@@ -16,7 +18,6 @@ public class LineParserer
         {
             return;
         }
-
         if (processingData)
         {
             ProcessDataLine(line);
@@ -44,7 +45,19 @@ public class LineParserer
     }
     private void ProcessCodeLine(string line)
     {
-        Debug.Log("Code line to parse: " + line);
+        if (line.Contains(":"))
+        {
+            string[] elements = line.Split(':');
+            Registers.registry[elements[0]] = memoryPosition;// <- this is a new registry item...
+            List<string> dummyList = elements.ToList();
+            dummyList.RemoveAt(0);
+            line = dummyList[0];
+        }
+
+        Memory.memory[memoryPosition] = line;
+        Debug.Log("Added to memory the line: " + line + " at memory position " + memoryPosition);
+
+        memoryPosition++;//In order to iterate to the next memory position.
     }
     private string RemoveUnwantedCharacters(string line, string[] characters)
     {
@@ -70,6 +83,7 @@ public class LineParserer
         {
             case ".code":
                 processingCode = true;
+                memoryPosition = 0;
                 return true;
             case ".endcode":
                 processingCode = false;
