@@ -12,6 +12,7 @@ public class StartSetup : MonoBehaviour
     {
         TextLoader textLoader = new TextLoader();
         string allWords = textLoader.ReadFromFile("example");
+        displayManager.StartDisplaySettings();
         displayManager.DisplayAssemblyCodeText(allWords);
 
         LineParserer lineParserer = new LineParserer();
@@ -22,13 +23,6 @@ public class StartSetup : MonoBehaviour
             lineParserer.ParseLine(line);
         }
 
-        Instructions.instructions["LD"].Execute("whatever");
-        Instructions.instructions["ST"].Execute("whatever");
-        //To mess with teh memory array
-        //Memory.memory[10] = "Whatever";
-
-        //Use it like this to mess with teh registry
-        //Debug.Log("AC: " + Registers.registry["AC"]);
+        displayManager.PopulateVisualMemoryArray();
     }
-
 }

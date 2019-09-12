@@ -6,12 +6,17 @@ using TMPro;
 public class DisplayManager : MonoBehaviour
 {
     public TextMeshProUGUI assemblyText;
-    private void Start()
+    public MemoryPanel memoryPanel;
+    public void StartDisplaySettings()
     {
-        
+        memoryPanel.CreateVisualMemoryPanel();
     }
     public void DisplayAssemblyCodeText(string codeText)
     {
         assemblyText.text = codeText;
+    }
+    public void PopulateVisualMemoryArray()
+    {
+        memoryPanel.PopulateVisualMemoryPanel();
     }
 }
