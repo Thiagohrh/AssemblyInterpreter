@@ -7,7 +7,8 @@ public class StartSetup : MonoBehaviour
     Registers registers = new Registers();
     Memory memory = new Memory();
     Instructions instructions = new Instructions();
-    public DisplayManager displayManager; 
+    public DisplayManager displayManager;
+    public ExecutionManager executionManager;
     void Start()
     {
         TextLoader textLoader = new TextLoader();
@@ -24,5 +25,7 @@ public class StartSetup : MonoBehaviour
         }
 
         displayManager.PopulateVisualMemoryArray();
+
+        executionManager.SetupToExecute();
     }
 }
