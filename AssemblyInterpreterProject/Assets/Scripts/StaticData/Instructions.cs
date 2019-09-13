@@ -8,5 +8,13 @@ public class Instructions
     {
         instructions["ST"] = new ST();
         instructions["LD"] = new LD();
+        instructions["ADD"] = new ADD();
+        instructions["SUB"] = new SUB();
+        instructions["JMP"] = new JMP();
+        instructions["JN"] = new JN();
+        instructions["JP"] = new JP();
+        instructions["JZ"] = new JZ();
+        instructions["JNZ"] = new JNZ();
+        instructions["HALT"] = new HALT();
     }
 }

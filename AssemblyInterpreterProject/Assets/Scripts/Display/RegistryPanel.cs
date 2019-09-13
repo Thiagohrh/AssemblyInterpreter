@@ -11,7 +11,7 @@ public class RegistryPanel : MonoBehaviour
     public void StartRegistry()
     {
         List<string> keyList = Registers.registry.Keys.ToList<string>();
-        Debug.Log("Printing all of the Keys");
+        //Debug.Log("Printing all of the Keys");
         foreach (string key in keyList)
         {
             GameObject nSlot = Instantiate(registrySlotRect, transform);
