@@ -7,7 +7,7 @@ public class MemoryPanel : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject memorySlotRect;
-    List<MemorySlotRect> memorySlotList = new List<MemorySlotRect>();
+    private List<MemorySlotRect> memorySlotList = new List<MemorySlotRect>();
     public void CreateVisualMemoryPanel()
     {
         int memoryAmount = Memory.memory.Length;

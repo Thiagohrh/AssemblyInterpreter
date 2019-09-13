@@ -7,6 +7,7 @@ public class DisplayManager : MonoBehaviour
 {
     public TextMeshProUGUI assemblyText;
     public MemoryPanel memoryPanel;
+    public RegistryPanel registryPanel;
     public void StartDisplaySettings()
     {
         memoryPanel.CreateVisualMemoryPanel();
@@ -18,5 +19,6 @@ public class DisplayManager : MonoBehaviour
     public void PopulateVisualMemoryArray()
     {
         memoryPanel.PopulateVisualMemoryPanel();
+        registryPanel.StartRegistry();
     }
 }

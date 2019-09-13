@@ -55,7 +55,7 @@ public class LineParserer
         }
 
         Memory.memory[memoryPosition] = line;
-        Debug.Log("Added to memory the line: " + line + " at memory position " + memoryPosition);
+        //Debug.Log("Added to memory the line: " + line + " at memory position " + memoryPosition);
 
         memoryPosition++;//In order to iterate to the next memory position.
     }
