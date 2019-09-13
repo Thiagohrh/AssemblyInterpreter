@@ -76,7 +76,6 @@ public class LineParserer
         }
         return line;
     }
-
     private bool CheckForDelimiters(string line)
     {
         switch (line)

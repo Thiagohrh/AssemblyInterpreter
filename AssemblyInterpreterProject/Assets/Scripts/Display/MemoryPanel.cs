@@ -29,4 +29,9 @@ public class MemoryPanel : MonoBehaviour
             counter++;
         }
     }
+
+    public void UpdateMemoryPanel()
+    {
+
+    }
 }
