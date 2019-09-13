@@ -16,4 +16,9 @@ public class MemorySlotRect : MonoBehaviour
     {
         this.index.text = index.ToString();
     }
+
+    public void SetTextColor(Color color)
+    {
+        textInfo.color = color;
+    }
 }

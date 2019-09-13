@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MemoryPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject memorySlotRect;
     private List<MemorySlotRect> memorySlotList = new List<MemorySlotRect>();
     public void CreateVisualMemoryPanel()
@@ -32,6 +31,14 @@ public class MemoryPanel : MonoBehaviour
 
     public void UpdateMemoryPanel()
     {
-
+        int memoryAmount = Memory.memory.Length;
+        int counter = 0;
+        foreach (MemorySlotRect slot in memorySlotList)
+        {
+            slot.SetTextColor(Color.white);
+            slot.SetText(Memory.memory[counter]);
+            counter++;
+        }
+        memorySlotList[Registers.registry["PC"]].SetTextColor(Color.yellow);
     }
 }

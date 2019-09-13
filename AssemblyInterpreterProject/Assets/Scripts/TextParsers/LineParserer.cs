@@ -51,13 +51,13 @@ public class LineParserer
             Registers.registry[elements[0]] = memoryPosition;// <- this is a new registry item...
             List<string> dummyList = elements.ToList();
             dummyList.RemoveAt(0);
+            dummyList[0] = dummyList[0].TrimStart();
             line = dummyList[0];
         }
 
         Memory.memory[memoryPosition] = line;
-        //Debug.Log("Added to memory the line: " + line + " at memory position " + memoryPosition);
 
-        memoryPosition++;//In order to iterate to the next memory position.
+        memoryPosition++;
     }
     private string RemoveUnwantedCharacters(string line, string[] characters)
     {

@@ -6,14 +6,12 @@ public class ExecutionManager : MonoBehaviour
 {
     private bool freeToExecute = false;
     public bool FreeToExecute { get => freeToExecute; set => freeToExecute = value; }
-
     public DisplayManager displayManager;
+    public Runner runner;
 
     public void SetupToExecute()
     {
         FreeToExecute = true;
-        //Should organize a few things. Highlight the current memory to be executed. Control input-based single instructions executing.
-        //At a later stage, should also have a Coroutine in order to automate the process. Everything should be checked via freeToExecute boolian.
         displayManager.UpdateVisualPanels();
     }
 
@@ -29,13 +27,11 @@ public class ExecutionManager : MonoBehaviour
     }
     private void ExecuteSingleCommand()
     {
-        //Debug.Log("Execute a single line!!!!!");
-
+        runner.ExecuteInstruction();
     }
 
     private void SetupStopExecuting()
     {
         FreeToExecute = false;
     }
-
 }

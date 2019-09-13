@@ -23,7 +23,8 @@ public class DisplayManager : MonoBehaviour
     }
 
     public void UpdateVisualPanels()
-    {//Should call similar updates from the memoryPanel and the registryPanel. 
-        Debug.Log("Calling UpdateVisualPanels. Currently lacking implementation.");
+    {
+        memoryPanel.UpdateMemoryPanel();
+        registryPanel.UpdateRegistryPanel();
     }
 }
