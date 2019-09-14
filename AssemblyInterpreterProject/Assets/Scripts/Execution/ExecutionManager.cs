@@ -33,6 +33,15 @@ public class ExecutionManager : MonoBehaviour
                 StartCoroutine(AutomaticExecution());
             }
         }
+        else if (runningCoroutine && Input.GetKeyDown(KeyCode.Space))
+        {
+            runningCoroutine = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private IEnumerator AutomaticExecution()
