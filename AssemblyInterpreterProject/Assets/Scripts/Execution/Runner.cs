@@ -19,5 +19,6 @@ public class Runner : MonoBehaviour
         }
         string operand = comandAndOperands[1];
         Instructions.instructions[comand].Execute(operand);
+
     }
 }

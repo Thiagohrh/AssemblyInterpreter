@@ -28,6 +28,7 @@ public class ExecutionManager : MonoBehaviour
     private void ExecuteSingleCommand()
     {
         runner.ExecuteInstruction();
+        displayManager.UpdateVisualPanels();
     }
 
     private void SetupStopExecuting()
