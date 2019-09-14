@@ -2,10 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JZ : IInstructionable<string>
+public class JZ : GenericInstruction
 {
-    public void Execute(string operandum)
+    public override void Execute(string operandum)
     {
-        //Debug.Log("Loading something!");
+        if (Registers.registry["Z"] == 1)
+        {
+            if (operandum.Contains("#"))
+            {
+                operandum = operandum.Replace("#", "");
+                Registers.registry["PC"] = int.Parse(operandum);
+                return;
+            }
+            else
+            {
+                int memoryIndex = GetDestinationIndexOfOperandum(operandum);
+                Registers.registry["PC"] = memoryIndex;
+            }
+            
+        }
+        else
+        {
+            Registers.registry["PC"]++;
+        }
     }
 }

@@ -2,10 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SUB : IInstructionable<string>
+public class SUB : GenericInstruction
 {
-    public void Execute(string operandum)
+    public override void Execute(string operandum)
     {
-        //Debug.Log("Loading something!");
+        int operationResult = 0;
+        if (operandum.Contains("#"))
+        {
+            operandum = operandum.Replace("#", "");
+            Registers.registry["AC"] -= int.Parse(operandum);
+            operationResult = Registers.registry["AC"];
+        }
+        else
+        {
+            int memoryIndex = GetDestinationIndexOfOperandum(operandum);
+            Registers.registry["AC"] -= int.Parse(Memory.memory[memoryIndex]);
+            operationResult = Registers.registry["AC"];
+        }
+
+        Registers.registry["PC"]++;
+
+        UpdateResultsToRegistry(operationResult);
     }
 }

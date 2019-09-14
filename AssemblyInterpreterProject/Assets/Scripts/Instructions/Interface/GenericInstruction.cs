@@ -9,12 +9,7 @@ public class GenericInstruction : IInstructionable<string>
     protected int GetDestinationIndexOfOperandum(string operandum)
     {
         int value = 0;
-        if (Registers.registry.ContainsKey(operandum))
-        {
-            value = Registers.registry[operandum];
-            return value;
-        }
-        else if (operandum.Contains("i"))
+        if (operandum.Contains("i"))
         {
             string[] operandumArray = operandum.Split(',');
             if (Registers.registry.ContainsKey(operandumArray[0]))
@@ -22,11 +17,20 @@ public class GenericInstruction : IInstructionable<string>
                 value = int.Parse(Memory.memory[Registers.registry[operandumArray[0]]]);
                 return value;
             }
-            if (true)
+            else
             {
+                if (operandumArray[0].Contains("#"))
+                {
+                    operandumArray[0] = operandumArray[0].Replace("#", "");
+                }
                 value = int.Parse(Memory.memory[int.Parse(operandumArray[0])]);
                 return value;
             }
+        }
+        else if (Registers.registry.ContainsKey(operandum))
+        {
+            value = Registers.registry[operandum];
+            return value;
         }
         return int.Parse(operandum);
     }
