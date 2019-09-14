@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class JMP : GenericInstruction
+﻿public class JMP : GenericInstruction
 {
     public override void Execute(string operandum)
     {

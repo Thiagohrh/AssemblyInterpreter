@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GenericInstruction : IInstructionable<string>
 {
-    virtual public void Execute(string operandum){}
+    virtual public void Execute(string operandum) { }
 
     protected int GetDestinationIndexOfOperandum(string operandum)
     {
@@ -48,7 +46,7 @@ public class GenericInstruction : IInstructionable<string>
             Registers.registry["Z"] = 0;
         }
 
-        if(result == 0)
+        if (result == 0)
         {
             Registers.registry["N"] = 0;
             Registers.registry["Z"] = 1;

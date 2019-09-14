@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class JZ : GenericInstruction
+﻿public class JZ : GenericInstruction
 {
     public override void Execute(string operandum)
     {
@@ -19,7 +15,7 @@ public class JZ : GenericInstruction
                 int memoryIndex = GetDestinationIndexOfOperandum(operandum);
                 Registers.registry["PC"] = memoryIndex;
             }
-            
+
         }
         else
         {

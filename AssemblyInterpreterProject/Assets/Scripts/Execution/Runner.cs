@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class Runner : MonoBehaviour
+public class Runner
 {
     public static Action OnHaltReached;
     public void ExecuteInstruction()
@@ -19,7 +16,6 @@ public class Runner : MonoBehaviour
                 Instructions.instructions[comand].Execute("Whatever");
                 OnHaltReached?.Invoke();
             }
-            //Here it should tell the ExecutionManager that it has reached a stop function....but how...
             return;
         }
         string operand = comandAndOperands[1];

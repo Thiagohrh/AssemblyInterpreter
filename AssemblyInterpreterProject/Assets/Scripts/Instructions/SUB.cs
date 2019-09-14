@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SUB : GenericInstruction
+﻿public class SUB : GenericInstruction
 {
     public override void Execute(string operandum)
     {

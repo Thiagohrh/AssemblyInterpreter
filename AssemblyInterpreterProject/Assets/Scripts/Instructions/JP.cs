@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class JP : IInstructionable<string>
+public class JP : GenericInstruction
 {
-    public void Execute(string operandum)
+    public override void Execute(string operandum)
     {
-        //Debug.Log("Loading something!");
+        Debug.Log("JP not yet implemented");
     }
 }

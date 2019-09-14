@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExecutionManager : MonoBehaviour
@@ -8,7 +7,8 @@ public class ExecutionManager : MonoBehaviour
     public bool FreeToExecute { get => freeToExecute; set => freeToExecute = value; }
     private bool runningCoroutine = false;
     public DisplayManager displayManager;
-    public Runner runner;
+    private Runner runner = new Runner();
+    private float automaticRunSpeed = 1.8f;
 
     public void SetupToExecute()
     {
@@ -27,8 +27,23 @@ public class ExecutionManager : MonoBehaviour
             {
                 ExecuteSingleCommand();
             }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                runningCoroutine = true;
+                StartCoroutine(AutomaticExecution());
+            }
         }
     }
+
+    private IEnumerator AutomaticExecution()
+    {
+        while (runningCoroutine)
+        {
+            ExecuteSingleCommand();
+            yield return new WaitForSeconds(1 / automaticRunSpeed);
+        }
+    }
+
     private void ExecuteSingleCommand()
     {
         runner.ExecuteInstruction();
@@ -38,6 +53,8 @@ public class ExecutionManager : MonoBehaviour
     private void SetupStopExecuting()
     {
         FreeToExecute = false;
+        StopCoroutine(AutomaticExecution());
+        runningCoroutine = false;
     }
 
     private void OnDestroy()

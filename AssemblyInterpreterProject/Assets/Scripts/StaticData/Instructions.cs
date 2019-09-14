@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 public class Instructions
 {
     public static Dictionary<string, IInstructionable<string>> instructions = new Dictionary<string, IInstructionable<string>>();
