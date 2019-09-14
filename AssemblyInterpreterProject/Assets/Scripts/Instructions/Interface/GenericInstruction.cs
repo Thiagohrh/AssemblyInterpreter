@@ -47,7 +47,8 @@ public class GenericInstruction : IInstructionable<string>
             Registers.registry["N"] = 1;
             Registers.registry["Z"] = 0;
         }
-        else
+
+        if(result == 0)
         {
             Registers.registry["N"] = 0;
             Registers.registry["Z"] = 1;

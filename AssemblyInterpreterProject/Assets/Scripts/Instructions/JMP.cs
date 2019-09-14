@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JMP : IInstructionable<string>
+public class JMP : GenericInstruction
 {
-    public void Execute(string operandum)
+    public override void Execute(string operandum)
     {
-        //Debug.Log("Loading something!");
+        if (operandum.Contains("#"))
+        {
+            operandum = operandum.Replace("#", "");
+            Registers.registry["PC"] = int.Parse(operandum);
+        }
+        else
+        {
+            int memoryIndex = GetDestinationIndexOfOperandum(operandum);
+            Registers.registry["PC"] = memoryIndex;
+        }
+
     }
 }

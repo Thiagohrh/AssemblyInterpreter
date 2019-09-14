@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HALT : IInstructionable<string>
+public class HALT : GenericInstruction
 {
-    public void Execute(string operandum)
+    public override void Execute(string operandum)
     {
-        //Debug.Log("Loading something!");
+        Debug.Log("Now...how do I handle this...?");
     }
 }
