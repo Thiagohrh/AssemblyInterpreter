@@ -10,13 +10,15 @@ public class ExecutionManager : MonoBehaviour
     private Runner runner = new Runner();
     private float automaticRunSpeed = 1.8f;
 
+    private void Awake()
+    {
+        Runner.OnHaltReached -= SetupStopExecuting;
+        Runner.OnHaltReached += SetupStopExecuting;
+    }
     public void SetupToExecute()
     {
         FreeToExecute = true;
         displayManager.UpdateVisualPanels();
-
-        Runner.OnHaltReached -= SetupStopExecuting;
-        Runner.OnHaltReached += SetupStopExecuting;
     }
 
     private void Update()
@@ -59,11 +61,11 @@ public class ExecutionManager : MonoBehaviour
         displayManager.UpdateVisualPanels();
     }
 
-    private void SetupStopExecuting()
+    public void SetupStopExecuting()
     {
         FreeToExecute = false;
-        StopCoroutine(AutomaticExecution());
         runningCoroutine = false;
+        StopCoroutine(AutomaticExecution());
     }
 
     private void OnDestroy()
