@@ -29,4 +29,18 @@ public class RegistryPanel : MonoBehaviour
             registryDictionary[key].SetNumber(Registers.registry[key]);
         }
     }
+
+    public void RebuildRegistryPanel()
+    {
+        registryDictionary = new Dictionary<string, RegisterSlotRect>();
+        registryDictionary.Clear();
+        foreach (Transform child in this.transform)
+        {
+            //...What?
+            child.gameObject.SetActive(false);
+            Destroy(child.gameObject);
+            //Debug.Log(child.gameObject.name);
+        }
+        StartRegistry();
+    }
 }

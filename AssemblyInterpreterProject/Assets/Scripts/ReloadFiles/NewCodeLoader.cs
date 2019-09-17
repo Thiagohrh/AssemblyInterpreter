@@ -21,6 +21,7 @@ public class NewCodeLoader : MonoBehaviour
             lineParserer.ParseLine(line);
         }
 
+        displayManager.Reload();
         displayManager.PopulateVisualMemoryArray();
 
         executionManager.SetupToExecute();
