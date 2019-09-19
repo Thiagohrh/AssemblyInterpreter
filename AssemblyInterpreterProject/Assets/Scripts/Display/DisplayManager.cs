@@ -28,5 +28,6 @@ public class DisplayManager : MonoBehaviour
     public void Reload()
     {
         registryPanel.RebuildRegistryPanel();
+        memoryPanel.UpdateMemoryPanel();
     }
 }

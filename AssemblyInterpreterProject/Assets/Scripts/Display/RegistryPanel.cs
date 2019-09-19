@@ -10,6 +10,7 @@ public class RegistryPanel : MonoBehaviour
     public void StartRegistry()
     {
         List<string> keyList = Registers.registry.Keys.ToList<string>();
+        //Debug.Log("The registry currently has : " + keyList.Count);
         foreach (string key in keyList)
         {
             GameObject nSlot = Instantiate(registrySlotRect, transform);
@@ -34,13 +35,11 @@ public class RegistryPanel : MonoBehaviour
     {
         registryDictionary = new Dictionary<string, RegisterSlotRect>();
         registryDictionary.Clear();
-        foreach (Transform child in this.transform)
+        int childNumber = transform.childCount - 1;
+        for (int i = childNumber; i >= 0; i--)
         {
-            //...What?
-            child.gameObject.SetActive(false);
+            Transform child = transform.GetChild(i);
             Destroy(child.gameObject);
-            //Debug.Log(child.gameObject.name);
         }
-        StartRegistry();
     }
 }
