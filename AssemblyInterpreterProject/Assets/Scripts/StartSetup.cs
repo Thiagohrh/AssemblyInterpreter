@@ -9,6 +9,8 @@ public class StartSetup : MonoBehaviour
     public ExecutionManager executionManager;
     void Start()
     {
+        Screen.fullScreen = false;
+
         TextLoader textLoader = new TextLoader();
         string allWords = textLoader.ReadFromFile("example");
         displayManager.StartDisplaySettings();
