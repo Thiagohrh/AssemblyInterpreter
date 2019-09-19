@@ -32,4 +32,19 @@ public class ImageDisplay : MonoBehaviour
             new Color(Registers.registry["AC"], Registers.registry["AC2"], Registers.registry["AC3"]));
         image.sprite.texture.Apply();
     }
+
+    public static void ClearPixelsOnScreen()
+    {
+        Color[] colorArray = new Color[image.sprite.texture.width * image.sprite.texture.height];
+        for (int x = 0; x < image.sprite.texture.width; x++)
+        {
+            for (int y = 0; y < image.sprite.texture.height; y++)
+            {
+                colorArray[x + (y + image.sprite.texture.width)] = Color.white;
+            }
+        }
+
+        image.sprite.texture.SetPixels(colorArray);
+        image.sprite.texture.Apply();
+    }
 }

@@ -4,8 +4,7 @@ public class CLR : GenericInstruction
 {
     public override void Execute(string operandum)
     {
-
-        Debug.Log("CLR used! Not yet implemented!!!!");
+        ImageDisplay.ClearPixelsOnScreen();
         Registers.registry["PC"]++;
 
         UpdateResultsToRegistry(Registers.registry["AC"]);

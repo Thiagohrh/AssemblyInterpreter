@@ -23,6 +23,7 @@ public class NewCodeLoader : MonoBehaviour
 
         displayManager.Reload();
         displayManager.PopulateVisualMemoryArray();
+        ImageDisplay.ClearPixelsOnScreen();
 
         executionManager.SetupToExecute();
     }
