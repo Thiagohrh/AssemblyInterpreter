@@ -8,7 +8,7 @@ public class ExecutionManager : MonoBehaviour
     private bool runningCoroutine = false;
     public DisplayManager displayManager;
     private Runner runner = new Runner();
-    private float automaticRunSpeed = 1.8f;
+    private float automaticRunSpeed = 3.0f;
 
     private void Awake()
     {

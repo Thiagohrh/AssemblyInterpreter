@@ -11,9 +11,9 @@ public class Runner
         string comand = comandAndOperands[0];
         if (comandAndOperands.Length == 1) // Means said instruction doesnt have an operand with it.
         {
+            Instructions.instructions[comand].Execute("Whatever");
             if (comand == "HALT")
             {
-                Instructions.instructions[comand].Execute("Whatever");
                 OnHaltReached?.Invoke();
             }
             return;
