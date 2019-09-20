@@ -1,0 +1,35 @@
+.data
+ZERO: DB #144, #0
+COLOR: DB #145, #255
+WIDTH: DB #146, #5
+HEIGHT: DB #147, #3
+Y: DB #148, #0
+X: DB #149, #0
+.enddata
+
+.code
+START:	LD Y
+	SUB HEIGHT
+	JZ END
+DRAW:	LD X
+	LD2 Y
+	POS
+	LD ZERO
+	LD2 ZERO
+	LD3 COLOR
+	PXL
+	LD X
+	SUB WIDTH
+	JZ NLINE
+	LD X
+	ADD #1
+	ST X
+	JMP DRAW
+NLINE:	LD ZERO
+	ST X
+	LD Y
+	ADD #1
+	ST Y
+	JMP START
+END:	HALT
+.endcode

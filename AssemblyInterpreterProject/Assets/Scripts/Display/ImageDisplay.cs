@@ -28,23 +28,24 @@ public class ImageDisplay : MonoBehaviour
 
     public static void DrawPixelOnScreen()
     {
+        float red = (float)Registers.registry["AC"] / 255;
+        float green = (float)Registers.registry["AC2"] / 255;
+        float blue = (float)Registers.registry["AC3"] / 255;
         image.sprite.texture.SetPixel(Registers.DrawCursor.X, Registers.DrawCursor.Y, 
-            new Color(Registers.registry["AC"], Registers.registry["AC2"], Registers.registry["AC3"]));
+            new Color(red, green , blue));
         image.sprite.texture.Apply();
     }
 
     public static void ClearPixelsOnScreen()
     {
-        Color[] colorArray = new Color[image.sprite.texture.width * image.sprite.texture.height];
         for (int x = 0; x < image.sprite.texture.width; x++)
         {
             for (int y = 0; y < image.sprite.texture.height; y++)
             {
-                colorArray[x + (y + image.sprite.texture.width)] = Color.white;
+                image.sprite.texture.SetPixel(x, y,
+                    Color.white);
             }
         }
-
-        image.sprite.texture.SetPixels(colorArray);
         image.sprite.texture.Apply();
     }
 }
